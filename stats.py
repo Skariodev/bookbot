@@ -21,8 +21,6 @@ def character_count(filepath):
             all_characters[character] += 1
     return all_characters
 
-#return a SORTED LIST of DICTIONARIES! 
-
 def sort_on(dict):
     return dict["num"]
 

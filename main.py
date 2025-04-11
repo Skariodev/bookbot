@@ -1,20 +1,22 @@
-#importing word counting and character counting functions from stats.py
+#Importing functoins from stats.py + sys module
 from stats import count_words_in_book
 from stats import character_count
 from stats import sorted_characters
+import sys
+
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 def main():
-    book_path = "books/frankenstein.txt"
     print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {book_path}...")
+    print(f"Analyzing book found at {sys.argv[1]}...")
     print("----------- Word Count ----------")
-    print(f"Found {count_words_in_book(book_path)} total words")
+    print(f"Found {count_words_in_book(sys.argv[1])} total words")
     print("--------- Character Count -------")
-    characters = character_count(book_path)
-    #print(characters)
-    #Print the line below by accessing the key:value pairs, should not print "char" and "num" dummy.
+    characters = character_count(sys.argv[1])
     #print(f"dictionaries: {sorted_characters(book_path)}")
-    for item in sorted_characters(book_path):
+    for item in sorted_characters(sys.argv[1]):
         print(f"{item["char"]}: {item["num"]}")
     print("============= END ===============")
 main()
