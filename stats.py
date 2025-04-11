@@ -20,3 +20,21 @@ def character_count(filepath):
         else:
             all_characters[character] += 1
     return all_characters
+
+#return a SORTED LIST of DICTIONARIES! 
+
+def sort_on(dict):
+    return dict["num"]
+
+def sorted_characters(filepath): 
+    unsorted_list = character_count(filepath)
+    dict_list = []
+
+    for character in unsorted_list:
+        if character.isalpha():
+            dict = {"char": character, "num": unsorted_list[character]}
+            dict_list.append(dict)
+    
+    dict_list.sort(reverse=True, key=sort_on)
+
+    return dict_list
